@@ -1,0 +1,13 @@
+.login {
+  background-image: url("./images/login_splash.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  flex-grow: 2
+}
+
+header{
+  background-color: #353535;
+  color:#FFFFFF;
+  padding-bottom: 2rem
+}

@@ -24,6 +24,7 @@ Industry is an application that will help companies keep track of where there mo
 
 
 --stretch--
+
 [ ]-add eff. of workers time expected time took
 [ ]-which machine has the least time working
 [ ]-which has the most time worked on
