@@ -2,7 +2,7 @@ import React from 'react';
 
 const Login = ({}) => (
   <div className="login">
-    <header className="row justify-content-center">Industry</header>
+    <header className="row justify-content-center no-gutters">Industry</header>
     <br/>
     <div className="container">
       <div className="row justify-content-center">

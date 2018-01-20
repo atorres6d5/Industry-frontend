@@ -2,12 +2,28 @@
   background-image: url("./images/login_splash.jpg");
   background-size: cover;
   height: 100vh;
-  width: 100vw;
-  flex-grow: 2
+  width: 100%;
+  /* flex-grow: 2; */
+}
+
+.no-gutters {
+ margin-right: 0;
+ margin-left: 0;
+ padding-left: 0;
+ padding-right: 0;
+
+}
+
+.dashboard{
+  background-color: #8A897C;
+}
+
+.workerData{
+  background-color: #D2D7DF
 }
 
 header{
   background-color: #353535;
   color:#FFFFFF;
-  padding-bottom: 2rem
+  padding-bottom: 2rem;
 }
