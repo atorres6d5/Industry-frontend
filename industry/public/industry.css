@@ -19,7 +19,12 @@
 }
 
 .workerData{
-  background-color: #D2D7DF
+  background-color: #D2D7DF;
+}
+
+.actionbuttons{
+  background-color: #D2D7DF;
+  padding: 2rem;
 }
 
 header{
