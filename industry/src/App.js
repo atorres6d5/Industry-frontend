@@ -7,7 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid no-gutters">
-        <UserDash picture={'../../public/images/ComingSoon'}/>
+        <UserDash
+          picture={'../../public/images/ComingSoon'}
+          background={"../../public/images/drill"}
+        />
       </div>
     );
   }

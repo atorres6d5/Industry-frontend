@@ -16,10 +16,14 @@
 
 .dashboard{
   background-color: #8A897C;
+  border-radius: 20px;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 .workerData{
   background-color: #D2D7DF;
+  margin: 1rem;
 }
 
 .actionbuttons{
@@ -31,4 +35,10 @@ header{
   background-color: #353535;
   color:#FFFFFF;
   padding-bottom: 2rem;
+}
+
+.table{
+  background-color: #353535;
+  color: #FFFFFF;
+  margin: 2rem;
 }
