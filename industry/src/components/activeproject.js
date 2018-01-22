@@ -3,7 +3,7 @@ import React from 'react';
 const ActiveProjects = ({projects}) => (
   <div className="container">
     <div className="table-responsive">
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Project #</th>
@@ -15,15 +15,15 @@ const ActiveProjects = ({projects}) => (
           </tr>
         </thead>
         <tbody>
-          {projects.map(job=>{
+          {projects.map((job, index)=>{
             return(
-              <tr>
+              <tr key={index}>
                 <th scope="row">{job.id}</th>
                 <td>{job.Part_count}</td>
                 <td>{job.customer}</td>
                 <td>{job.due_date}</td>
                 <td>{job.Parts_made}</td>
-                <td><button type="button" class="btn btn-success">+</button></td>
+                <td><button type="button" className="btn btn-success">+</button></td>
               </tr>
             )
           })}

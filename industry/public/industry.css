@@ -15,15 +15,17 @@
 }
 
 .dashboard{
-  background-color: #8A897C;
+  background-color: rgba(138,137,124, 0.7);
   border-radius: 20px;
   margin-top: 2rem;
   padding: 1rem;
+
 }
 
 .workerData{
   background-color: #D2D7DF;
   margin: 1rem;
+  padding: 1rem;
 }
 
 .actionbuttons{
@@ -41,4 +43,9 @@ header{
   background-color: #353535;
   color: #FFFFFF;
   margin: 2rem;
+}
+
+body{
+  background-image: url("./images/drill.jpg");
+  background-size: cover;
 }

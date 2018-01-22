@@ -8,12 +8,6 @@ class UserDash extends Component {
     super(props)
   }
 
-  changeBackground=()=>{
-    document.body.style.backgroundImage=this.props.background
-
-  }
-
-
   render() {
 
     return (
@@ -47,7 +41,7 @@ class UserDash extends Component {
         </div>
         <div className="row justify-content-end">
           <div className="col-4">
-            <button type="button" class="btn btn-warning">Clock Out</button>
+            <button type="button" className="btn btn-warning">Clock Out</button>
           </div>
         </div>
       </div>
