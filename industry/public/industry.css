@@ -6,6 +6,10 @@
   /* flex-grow: 2; */
 }
 
+.input-group{
+  margin-top: 6rem;
+}
+
 .no-gutters {
  margin-right: 0;
  margin-left: 0;
@@ -37,6 +41,8 @@ header{
   background-color: #353535;
   color:#FFFFFF;
   padding-bottom: 2rem;
+  padding-top:  2rem;
+  size:3rem;
 }
 
 .table{
