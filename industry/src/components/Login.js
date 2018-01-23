@@ -1,6 +1,17 @@
 import React from 'react';
 
-const Login = ({}) => (
+
+const clickLogin = (empID){
+  /// hit route that checks if Employee is in data base, and then save token in local storage
+}
+
+
+
+
+
+
+
+const Login = () => (
   <div className="login">
     <header className="row justify-content-center no-gutters">Industry</header>
     <br/>

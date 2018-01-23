@@ -1,19 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Login from './components/Login';
 import UserDash from './containers/userDash'
 
-class App extends Component {
 
-  render() {
-    return (
-      <div className="container-fluid no-gutters">
-        <UserDash
-          picture={'../../public/images/ComingSoon'}
-          background={"../../public/images/drill"}
-        />
-      </div>
-    );
-  }
-}
+import Routes from './routes'
 
-export default App;
+
+
+
+
+// class App extends Component {
+//
+//   render() {
+//     return (
+//       <div className="container-fluid no-gutters">
+//         <UserDash
+//           picture={'../../public/images/ComingSoon'}
+//           background={"../../public/images/drill"}
+//         />
+//       </div>
+//     );
+//   }
+// }
+//
+// export default App;
+
+
+export default ()=> <Routes />
