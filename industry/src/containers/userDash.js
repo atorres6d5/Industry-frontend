@@ -15,7 +15,13 @@ class UserDash extends Component {
       token:localStorage.getItem('Industry Token'),
       empID:null,
       hireDate:null,
-      projects:[]
+      projects:[{
+        id: 1,
+        customer: 'ACME',
+        due_date: '1/11/2019',
+        Part_count: 28,
+        Parts_made:0
+      }]
     }
   }
 
@@ -40,6 +46,10 @@ class UserDash extends Component {
     await this.getWorkerData(this.state.empID)
   }
 
+  clockOut= async (empID) =>{
+
+  }
+
 
 
   render() {
@@ -57,6 +67,7 @@ class UserDash extends Component {
               logProject="Log into Project"
               claimScrap="Claim scrap part"
               endProject="log out Project"
+              history={this.props.history}
             />
           </div>
         </div>
@@ -64,13 +75,7 @@ class UserDash extends Component {
         <div className="row justify-content-center">
           <div className="col-10">
             <ActiveProjects
-              projects={[{
-                id: 1,
-                customer: 'ACME',
-                due_date: '1/11/2019',
-                Part_count: 28,
-                Parts_made:0
-              }]}
+              projects={this.state.projects}
             />
           </div>
         </div>

@@ -30,8 +30,27 @@ class lookUpProject extends Component {
     const token = localStorage.getItem('Industry Token')
 
     await axios.get(`${devURL}/api/projects/${input}`, {headers: {token}}).then(result=>{
-      console.log(result);
-      this.setState({searchResults:[result.data]})
+      if(!result){
+        console.log(result, 'yo')
+        return alert('No Project with that ID')
+      }else{
+        this.setState({searchResults:[result.data]})
+      }
+    })
+  }
+
+  searchByCustomer = async (e) => {
+    e.preventDefault()
+    const input = this.state.searchByCustomer
+    const token = localStorage.getItem('Industry Token')
+
+    await axios.get(`${devURL}/api/project/${input}`, {headers: {token}}).then(result=>{
+      if(result.status==404){
+        console.log(result, 'yo')
+        return alert(result.message)
+      }else{
+        this.setState({searchResults:result.data})
+      }
     })
   }
 
@@ -48,7 +67,7 @@ class lookUpProject extends Component {
                 </div>
               </div>
           </form>
-          <form className="container" >
+          <form className="container" onSubmit={this.searchByCustomer} >
             <div className="form-group">
                 <label htmlFor="search-by-customer">Find Projects By Customer</label>
                 <div className="row">
