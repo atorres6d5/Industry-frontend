@@ -3,7 +3,7 @@ import React from 'react';
 const Worker = ({picture, name, hireDate, clockTime}) => (
   <div className='container workerData'>
     <div className="row justify-content-start">
-      <div className="col-6">
+      <div className="col-10">
         <p>Clocked In at: {clockTime}
         <br/>
         Name: {name}

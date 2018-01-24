@@ -14,41 +14,41 @@ class UserDash extends Component {
       hireDate:null,
       token:localStorage.getItem('Industry Token'),
       empID:null,
-      hireDate:null
+      hireDate:null,
+      projects:[]
     }
   }
 
-  decodeToken(){
+   async decodeToken(){
     const token = this.state.token
-    axios.get(`${devURL}/logs/clockIn/token`, {headers:{token}}).then(result=>{
-      // console.log(result.data)
+    await axios.get(`${devURL}/logs/clockIn/token`, {headers:{token}}).then(result=>{
       this.setState({empID:result.data.id})
-      return result.data.id
     })
   }
 
-  getWorkerData(id){
-    axios.get(`${devURL}/admin/getUser/${id}`).then(result=>{
+  async getWorkerData(id){
+    await axios.get(`${devURL}/admin/getUser/${id}`).then(result=>{
       this.setState({
-        name:result.name,
-        hireDate:result.created_at.slice(0,10)
+        name:result.data.name,
+        hireDate:result.data.created_at.slice(0,10)
       })
     })
-
   }
 
-  componentDidMount(){
-    this.decodeToken()
+  async componentWillMount(){
+    await this.decodeToken()
+    await this.getWorkerData(this.state.empID)
   }
 
 
 
   render() {
 
+
     return (
       <div className="container dashboard">
         <div className="row justify-content-between">
-          <div className="col-4">
+          <div className="col-5">
             <Worker clockTime="12:00" picture={this.props.picture} name={this.state.name} hireDate={this.state.hireDate}/>
           </div>
           <div className="col-6 d-flex align-items-center">

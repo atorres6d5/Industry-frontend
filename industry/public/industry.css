@@ -30,11 +30,20 @@
   background-color: #D2D7DF;
   margin: 1rem;
   padding: 1rem;
+  border-radius: 5px;
 }
 
 .actionbuttons{
   background-color: #D2D7DF;
   padding: 2rem;
+  border-radius: 5px;
+}
+
+.searchProject{
+  margin-top: 4rem;
+  background-color: rgba(138,137,124, 0.7);
+  padding-bottom: 2rem;
+
 }
 
 header{
@@ -49,9 +58,11 @@ header{
   background-color: #353535;
   color: #FFFFFF;
   margin: 2rem;
+  border-radius: 5px;
 }
 
 body{
   background-image: url("./images/drill.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
 }
