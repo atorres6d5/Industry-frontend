@@ -23,15 +23,17 @@ class Login extends Component {
       localStorage.setItem('Industry Token', response.data.token)
       console.log(response.data);
       this.setState({token:response.data.token})
+      this.props.history.push('/dashboard' )
     })
   }
 
   checkToken = (token)=>{
     // let token = localStorage.getItem('Industry Token')
     axios.get(`${devURL}/logs/clockIn/token`, {headers:{token}}).then(result=>{
-      console.log(result.data)
+
       if(result.data){
-        this.props.history.push('/dashboard')
+        console.log(result.data)
+        this.props.history.push('/dashboard' )
       }
     })
   }

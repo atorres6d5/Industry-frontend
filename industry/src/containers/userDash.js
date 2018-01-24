@@ -2,11 +2,46 @@ import React, { Component } from 'react';
 import Worker from '../components/Worker';
 import ActionButtons from '../components/actionbuttons';
 import ActiveProjects from '../components/activeproject';
+const axios = require('axios')
+const devURL='http://localhost:3000'
 
 class UserDash extends Component {
   constructor(props){
     super(props)
+    this.state={
+      clockInTime:null,
+      name:null,
+      hireDate:null,
+      token:localStorage.getItem('Industry Token'),
+      empID:null,
+      hireDate:null
+    }
   }
+
+  decodeToken(){
+    const token = this.state.token
+    axios.get(`${devURL}/logs/clockIn/token`, {headers:{token}}).then(result=>{
+      // console.log(result.data)
+      this.setState({empID:result.data.id})
+      return result.data.id
+    })
+  }
+
+  getWorkerData(id){
+    axios.get(`${devURL}/admin/getUser/${id}`).then(result=>{
+      this.setState({
+        name:result.name,
+        hireDate:result.created_at.slice(0,10)
+      })
+    })
+
+  }
+
+  componentDidMount(){
+    this.decodeToken()
+  }
+
+
 
   render() {
 
@@ -14,7 +49,7 @@ class UserDash extends Component {
       <div className="container dashboard">
         <div className="row justify-content-between">
           <div className="col-4">
-            <Worker clockTime="12:00" picture={this.props.picture} name="Homer" hireDate="12/17/1989"/>
+            <Worker clockTime="12:00" picture={this.props.picture} name={this.state.name} hireDate={this.state.hireDate}/>
           </div>
           <div className="col-6 d-flex align-items-center">
             <ActionButtons

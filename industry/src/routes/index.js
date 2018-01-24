@@ -12,7 +12,7 @@ export default ()=>(
   <BrowserRouter>
     <Switch>
       <Route path="/" exact component = {Login}/>
-      <Route path="/dashboard" exact render={()=>(<UserDash />)}/>
+      <Route path="/dashboard" exact component ={UserDash}/>
     </Switch>
   </BrowserRouter>
 )
