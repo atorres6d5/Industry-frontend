@@ -20,6 +20,7 @@ class Login extends Component {
     const data = {id:emp}
 
     axios.post(`${devURL}/logs/clockIn`, data).then(response=>{
+      console.log(response)
       localStorage.setItem('Industry Token', response.data.token)
       console.log(response.data);
       this.setState({token:response.data.token})
@@ -42,6 +43,17 @@ class Login extends Component {
     this.checkToken(this.state.token)
   }
 
+  adminLogin = async (e)=>{
+    e.preventDefault()
+    const userid = e.target.adminID.value
+    const pass = e.target.pass.value
+    await axios.post(`${devURL}/admin/login`, {headers:{userid, pass}}).then(responce=>{
+      console.log(responce);
+      localStorage.setItem('Admin Token', responce.data.token)
+    })
+  }
+
+
   render() {
     return (
       <div className="login">
@@ -61,6 +73,20 @@ class Login extends Component {
             </div>
           </div>
         </div>
+
+        <form className="container" onSubmit={this.adminLogin}>
+          <div className="row justify-content-center">
+            <div className="col-6">
+              <div className="input-group mb-3">
+                <input name="adminID" id="adminID" type="number" className="form-control" placeholder="Admin ID#" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                <input name="pass" id="pass" type="password" className="form-control" placeholder="***********" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                <div className="input-group-append">
+                  <button className="btn btn-secondary" type="submit" >Login</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     );
   }
