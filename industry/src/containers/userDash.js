@@ -46,8 +46,14 @@ class UserDash extends Component {
     await this.getWorkerData(this.state.empID)
   }
 
-  clockOut= async (empID) =>{
+  clockOut= async () =>{
+    await axios.post(`${devURL}/logs/clockOut/${this.state.empID}`)
+    .then(localStorage.removeItem('Industry Token')).then(this.props.history.push('/login'))
+  }
 
+  logOut=()=>{
+    localStorage.removeItem('Industry Token')
+    this.props.history.push('/login')
   }
 
 
@@ -80,8 +86,9 @@ class UserDash extends Component {
           </div>
         </div>
         <div className="row justify-content-end">
-          <div className="col-4">
-            <button type="button" className="btn btn-warning">Clock Out</button>
+          <div className="col-3 d-flex justify-content-between">
+            <button type="button" className="btn btn-secondary" onClick={this.logOut}>Log Out</button>
+            <button type="button" className="btn btn-warning" onClick={this.clockOut}>Clock Out</button>
           </div>
         </div>
       </div>
