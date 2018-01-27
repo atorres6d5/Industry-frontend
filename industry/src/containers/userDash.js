@@ -14,7 +14,6 @@ class UserDash extends Component {
       hireDate:null,
       token:localStorage.getItem('Industry Token'),
       empID:null,
-      hireDate:null,
       projects:[{
         id: 1,
         customer: 'ACME',
@@ -59,15 +58,13 @@ class UserDash extends Component {
 
 
   render() {
-
-
     return (
       <div className="container dashboard">
         <div className="row justify-content-between">
           <div className="col-5">
             <Worker clockTime="12:00" picture={this.props.picture} name={this.state.name} hireDate={this.state.hireDate}/>
           </div>
-          <div className="col-6 d-flex align-items-center">
+          <div className="col-5 d-flex align-items-center">
             <ActionButtons
               lookUp="look up Project"
               logProject="Log into Project"

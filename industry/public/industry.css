@@ -24,6 +24,16 @@
   margin-top: 2rem;
   padding: 1rem;
 
+
+}
+
+.adminDash{
+  background-color: rgba(138,137,124, 0.7);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+
 }
 
 .workerData{
@@ -47,11 +57,23 @@
 
 }
 
+.scorll{
+  max-height: 200px;
+  overflow-y: auto;
+  width: auto;
+}
+
+tbody{
+  top: 100px;
+  position: relative;
+
+}
+
 header{
   background-color: #353535;
   color:#FFFFFF;
-  padding-bottom: 2rem;
-  padding-top:  2rem;
+  padding-bottom: 1rem;
+  padding-top:  1rem;
   size:3rem;
 }
 
@@ -60,6 +82,10 @@ header{
   color: #FFFFFF;
   margin: 2rem;
   border-radius: 5px;
+}
+
+img{
+  max-height: 250px
 }
 
 body{

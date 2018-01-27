@@ -50,6 +50,7 @@ class Login extends Component {
     await axios.post(`${devURL}/admin/login`, {headers:{userid, pass}}).then(responce=>{
       console.log(responce);
       localStorage.setItem('Admin Token', responce.data.token)
+      this.props.history.push('/adminDash')
     })
   }
 
