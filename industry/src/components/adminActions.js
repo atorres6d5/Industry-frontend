@@ -7,7 +7,7 @@ const AdminActions = ({history}) => (
         <button type="button" className="btn btn-block btn-secondary" onClick={()=>history.push('/lookUpProject')}>Look Up Project</button>
       </div>
       <div className="col-6">
-        <button type="button" className="btn btn-block btn-secondary">Time Cards</button>
+        <button type="button" className="btn btn-block btn-secondary" onClick={()=>history.push('/timeCards')}>Time Cards</button>
       </div>
     </div>
     <br/>
@@ -16,7 +16,7 @@ const AdminActions = ({history}) => (
         <button type="button" className="btn btn-block btn-secondary">Add Project</button>
       </div>
       <div className="col-6">
-        <button type="button" className="btn btn-block btn-secondary">Add New Worker</button>
+        <button type="button" className="btn btn-block btn-secondary" onClick={()=>history.push('/newWorker')}>Add New Worker</button>
       </div>
     </div>
   </div>
