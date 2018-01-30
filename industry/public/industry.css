@@ -54,10 +54,22 @@
   border-radius: 10px;
 }
 
+.newProject{
+  background-color: rgba(210,215,223, 0.7);
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 4rem;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
 .actionbuttons{
   background-color: #D2D7DF;
   padding: 2rem;
   border-radius: 5px;
+  min-width: 400px
 }
 
 .searchProject{

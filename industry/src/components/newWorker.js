@@ -68,7 +68,7 @@ class NewWorker extends Component {
           </div>
           <div className="form-group">
             <label>Make Admin:</label>
-              <select value={this.state.value} onChange={this.isAdminTrue}>
+              <select value={this.state.isAdmin} onChange={this.isAdminTrue}>
                 <option value="False">No</option>
                 <option value="True">Yes</option>
               </select>

@@ -38,7 +38,6 @@ class AdminDash extends Component {
 
 
   render() {
-    console.log(this.state.workers);
 
     return (
       <div>

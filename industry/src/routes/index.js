@@ -6,6 +6,7 @@ import lookUpProject from '../components/lookupProject'
 import AdminDash from '../containers/adminDash'
 import Timecards from '../components/timeCards'
 import NewWorker from '../components/newWorker'
+import NewProject from '../components/newProject'
 
 
 
@@ -46,6 +47,7 @@ class Routes extends Component {
           <PrivateRoute path="/adminDash" exact component={AdminDash} />
           <PrivateRoute path="/timeCards" exact component={Timecards} />
           <PrivateRoute path="/newWorker" exact component={NewWorker} />
+          <PrivateRoute path="/newProject" exact component={NewProject} />
         </Switch>
       </BrowserRouter>
     );
