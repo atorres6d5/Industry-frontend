@@ -24,6 +24,7 @@ class AdminDash extends Component {
   whosHere = async ()=>{
     axios.get(`${devURL}/admin/clocked/in`).then(response=>{
       console.log(response)
+      response.data.message ? null:
       response.data.data.forEach(worker=>{
         worker.hours = moment(worker.Clock_in).toNow(true)
       })
@@ -37,6 +38,7 @@ class AdminDash extends Component {
 
 
   render() {
+    console.log(this.state.workers);
 
     return (
       <div>
@@ -71,7 +73,8 @@ class AdminDash extends Component {
                 <h3>Workers Clocked In</h3>
                 </div>
                 <div className="row">
-                  <ActiveWorkers workers={this.state.workers}/>
+                  {this.state.workers ? <ActiveWorkers workers={this.state.workers}/> : null }
+
                 </div>
               </div>
             </div>
