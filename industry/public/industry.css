@@ -15,7 +15,6 @@
  margin-left: 0;
  padding-left: 0;
  padding-right: 0;
-
 }
 
 .dashboard{
@@ -23,8 +22,13 @@
   border-radius: 20px;
   margin-top: 2rem;
   padding: 1rem;
+}
 
 
+.ReactModal__Content--after-open{
+  left: 30% !important;
+  right: 30% !important;
+  bottom: 50% !important;
 }
 
 .adminDash{
@@ -32,8 +36,6 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 2rem;
-
-
 }
 
 .workerData{

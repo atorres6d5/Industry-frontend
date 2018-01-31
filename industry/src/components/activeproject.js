@@ -18,7 +18,7 @@ const ActiveProjects = ({projects}) => (
           {projects.map((job, index)=>{
             return(
               <tr key={index}>
-                <th scope="row">{job.id}</th>
+                <th scope="row">{job.project_id}</th>
                 <td>{job.Part_count}</td>
                 <td>{job.customer}</td>
                 <td>{job.due_date}</td>
