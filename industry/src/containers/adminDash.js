@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AdminActions from '../components/adminActions'
 import ActiveWorkers from '../components/activeWorkers'
 const axios = require('axios')
-const devURL = 'http://localhost:3000'
+const devURL=process.env.REACT_APP_API_URL
 const moment = require('moment')
 
 class AdminDash extends Component {

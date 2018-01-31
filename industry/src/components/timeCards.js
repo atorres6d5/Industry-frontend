@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import TimeHistory from './TimeHistory'
 
 const axios = require('axios')
-const devURL = 'http://localhost:3000'
+const devURL=process.env.REACT_APP_API_URL
 const moment = require('moment')
 
 class Timecards extends Component {

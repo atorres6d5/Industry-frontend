@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const devURL = 'http://localhost:3000'
+const devURL=process.env.REACT_APP_API_URL
 const axios = require('axios')
 
 class NewWorker extends Component {

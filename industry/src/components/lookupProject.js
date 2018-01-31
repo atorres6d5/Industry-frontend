@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ProjectData from './projectdata'
 const axios = require('axios')
 
-const devURL = 'http://localhost:3000'
+const devURL=process.env.REACT_APP_API_URL
 
 class lookUpProject extends Component {
   constructor(props) {

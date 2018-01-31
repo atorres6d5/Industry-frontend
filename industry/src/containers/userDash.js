@@ -7,7 +7,7 @@ import ProjectLogin from '../modals/projectLogin'
 import ProjectLogout from '../modals/projectLogout'
 
 const axios = require('axios')
-const devURL = 'http://localhost:3000'
+const devURL=process.env.REACT_APP_API_URL
 const moment = require('moment')
 
 class UserDash extends Component {
