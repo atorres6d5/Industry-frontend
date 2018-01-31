@@ -24,7 +24,7 @@ class NewWorker extends Component {
 
   isAdminTrue = (e) => {
     console.log(e.target.value)
-    e.target.value == "True"
+    e.target.value === "True"
       ? this.setState({isAdmin: true})
       : this.setState({isAdmin: false})
   }

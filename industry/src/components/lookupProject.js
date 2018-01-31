@@ -51,8 +51,8 @@ class lookUpProject extends Component {
     await axios.get(`${devURL}/api/project/${input}`, {headers: {
         token
       }}).then(result => {
-      if (result.status == 404) {
-        console.log(result, 'yo')
+      if (result.status === 404) {
+        // console.log(result, 'yo')
         return alert(result.message)
       } else {
         this.setState({searchResults: result.data})

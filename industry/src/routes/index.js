@@ -15,7 +15,7 @@ const PrivateRoute = ({
     localStorage.getItem('Industry Token') || localStorage.getItem('Admin Token')
     ? (<Component {...props}/>)
     : (<Redirect to={{
-        pathname: '/login',
+        pathname: '/',
         state: {
           from: props.location
         }
@@ -35,7 +35,7 @@ class Routes extends Component {
   render() {
     return (<BrowserRouter>
       <Switch>
-        <Route path="/login" exact="exact" component={Login}/>
+        <Route path="/" exact="exact" component={Login}/>
         <PrivateRoute path="/dashboard" exact="exact" component={UserDash}/>
         <PrivateRoute path="/lookUpProject" exact="exact" component={lookUpProject}/>
         <PrivateRoute path="/adminDash" exact="exact" component={AdminDash}/>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Worker from '../components/Worker';
 import ActionButtons from '../components/actionbuttons';
 import ActiveProjects from '../components/activeproject';
-import lookUpProject from '../components/lookupProject'
 import ReactModal from 'react-modal'
 import ProjectLogin from '../modals/projectLogin'
 import ProjectLogout from '../modals/projectLogout'
