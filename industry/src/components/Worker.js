@@ -14,7 +14,7 @@ const Worker = ({picture, name, hireDate, clockTime}) => (
     <div className="row justify-content-start">
       <div className="col-2">
         <div className="text-center">
-          <img src='./images/ComingSoon.jpg' className="rounded" alt=""/>
+          <img src={picture} className="rounded" alt=""/>
         </div>
       </div>
     </div>
