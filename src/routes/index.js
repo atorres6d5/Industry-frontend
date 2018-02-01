@@ -42,6 +42,7 @@ class Routes extends Component {
         <PrivateRoute path="/timeCards" exact="exact" component={Timecards}/>
         <PrivateRoute path="/newWorker" exact="exact" component={NewWorker}/>
         <PrivateRoute path="/newProject" exact="exact" component={NewProject}/>
+        <Route component={Login}/>
       </Switch>
     </BrowserRouter>);
   }

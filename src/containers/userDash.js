@@ -62,14 +62,14 @@ class UserDash extends Component {
 
   projectLogin = async (e) => {
     e.preventDefault()
-    const input = parseInt(this.state.projectID)
+    const input = this.state.projectID
     const token = localStorage.getItem('Industry Token')
     await axios.post(`${devURL}/api/login/project/${input}`, {user_id: this.state.empID}).then(result => {
       if (result.data.message) {
-        console.log(result, 'yo')
+        console.log(result, 'yo we got it wrong! login')
         return alert(`Already logged into Project # ${input}`)
       } else {
-        console.log(result.data, "here bug");
+        console.log(result, "here bug");
         result.data.forEach(project => {
           project.due_date = moment(project.due_date).format("MM-DD-YYYY")
         })

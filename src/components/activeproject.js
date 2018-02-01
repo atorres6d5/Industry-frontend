@@ -10,6 +10,7 @@ const ActiveProjects = ({projects}) => (<div className="container">
           <th scope="col">Customer</th>
           <th scope="col">Due Date</th>
           <th scope="col">Parts Made</th>
+          <th scope="col">Scrap Count</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@ const ActiveProjects = ({projects}) => (<div className="container">
               <td>{job.customer}</td>
               <td>{job.due_date}</td>
               <td>{job.Parts_made}</td>
+              <td>{job.scrap_parts}</td>
             </tr>)
           })
         }
