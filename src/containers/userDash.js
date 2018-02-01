@@ -99,10 +99,11 @@ class UserDash extends Component {
       })
     ]).then(result => {
       const res = result[1].data
-      // console.log(res)
+
+      console.log(res)
       this.handleCloseLogOut()
-      alert(`logged out of Project: ${res.project_id}`)
-      this.forceUpdate()
+      alert(`logged out of Project: ${res.project_id}. Claimed ${res.Parts_made} and Scrapped ${res.Non_Conforming_Parts}`)
+      this.activeProjects()
     })
   }
 
