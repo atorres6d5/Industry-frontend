@@ -9,7 +9,7 @@ class NewProject extends Component {
     this.state = {
       customer: "",
       part: 0,
-      dueDate: new Date(),
+      dueDate: moment().add(1,"years")._d,
       qty: 0
     }
   }
@@ -53,19 +53,20 @@ class NewProject extends Component {
       <form onSubmit={this.addProject}>
         <div className="form-group">
           <label>Customer</label>
-          <input type="text" className="form-control" placeholder="Customer Name" onChange={this.handleCustomer} value={this.state.customer}/>
+          <input type="text" className="form-control" placeholder="Customer Name" onChange={this.handleCustomer} value={this.state.customer} required/>
         </div>
         <div className="form-group">
           <label>Part #</label>
-          <input type="number" className="form-control" placeholder="Part Nuber" onChange={this.handlePartNumber} value={this.state.part}/>
+          <input type="number" className="form-control" placeholder="Part Nuber" onChange={this.handlePartNumber} required/>
         </div>
         <div className="form-group">
           <label>Due Date:</label>
           <input type="date" className="form-control" placeholder={this.state.due_date} onChange={this.handleDueDate}></input>
+          <small class="form-text">Default one year form Today</small>
         </div>
         <div className="form-group">
           <label>Qty. Request</label>
-          <input type="number" className="form-control" onChange={this.handleQty} placeholder="0000"></input>
+          <input type="number" className="form-control" onChange={this.handleQty} placeholder="0000" required></input>
         </div>
         <div className="row justify-content-center">
           <div className="col-2">

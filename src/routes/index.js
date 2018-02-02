@@ -36,6 +36,7 @@ class Routes extends Component {
     return (<BrowserRouter>
       <Switch>
         <Route path="/" exact="exact" component={Login}/>
+        <Route path="/login" exact="exact" component={Login}/>
         <PrivateRoute path="/dashboard" exact="exact" component={UserDash}/>
         <PrivateRoute path="/lookUpProject" exact="exact" component={lookUpProject}/>
         <PrivateRoute path="/adminDash" exact="exact" component={AdminDash}/>

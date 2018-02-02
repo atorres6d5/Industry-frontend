@@ -64,7 +64,7 @@ class UserDash extends Component {
     e.preventDefault()
     const input = this.state.projectID
     const token = localStorage.getItem('Industry Token')
-    await axios.post(`${devURL}/api/login/project/${input}`, {user_id: this.state.empID}).then(result => {
+    await axios.post(`${devURL}/api/login/project/${input}`, {Employee_id: this.state.empID}).then(result => {
       if (result.data.message) {
         console.log(result, 'yo we got it wrong! login')
         return alert(`Already logged into Project # ${input}`)
@@ -89,18 +89,16 @@ class UserDash extends Component {
       axios.put(`${devURL}/api/count/update/${project_id}`, {
         count: Parts_made,
         scrap: scrap,
-        user_id: this.state.empID
+        Employee_id: this.state.empID
       }),
       axios.put(`${devURL}/api/logout/project/${project_id}`, {
         count: Parts_made,
         scrap: scrap,
-        user_id: this.state.empID,
+        Employee_id: this.state.empID,
         project_id: project_id
       })
     ]).then(result => {
       const res = result[1].data
-
-      console.log(res)
       this.handleCloseLogOut()
       alert(`logged out of Project: ${res.project_id}. Claimed ${res.Parts_made} and Scrapped ${res.Non_Conforming_Parts}`)
       this.activeProjects()
@@ -123,13 +121,14 @@ class UserDash extends Component {
     await axios.get(`${devURL}/logs/clockIn/token`, {headers: {
         token
       }}).then(result => {
+        console.log(result, 'token');
       this.setState({empID: result.data.id})
     })
   }
 
   async getWorkerData(id) {
     await axios.get(`${devURL}/admin/getUser/${id}`).then(result => {
-      console.log(result)
+      console.log(result, "here")
       this.setState({
         name: result.data.name,
         hireDate: result.data.created_at.slice(0, 10),
