@@ -64,7 +64,7 @@ class UserDash extends Component {
     e.preventDefault()
     const input = this.state.projectID
     const token = localStorage.getItem('Industry Token')
-    console.log(this.state.empID);
+    console.log(this.state.empID)
     await axios.post(`${devURL}/api/login/project/${input}`, {Employee_id: this.state.empID}).then(result => {
       if (result.data.message) {
         console.log(result, 'yo we got it wrong! login')
@@ -119,6 +119,7 @@ class UserDash extends Component {
 
   async decodeToken() {
     const token = this.state.token
+    console.log(token)
     await axios.get(`${devURL}/logs/clockIn/token`, {headers: {
         token
       }}).then(result => {
