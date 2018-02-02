@@ -8,9 +8,9 @@ class NewProject extends Component {
     super(props)
     this.state = {
       customer: "",
-      part: "000-000",
-      dueDate: "",
-      qty: "00"
+      part: 0,
+      dueDate: new Date(),
+      qty: 0
     }
   }
 
@@ -38,9 +38,14 @@ class NewProject extends Component {
       "due_date": this.state.dueDate,
       "Part_count": this.state.qty
     }).then(result => {
-      // console.log(result)
+      console.log(result)
       alert(`Added a new Project for ${result.data.customer}, for ${result.data.Part_count} parts of  Part Number:${result.data.Part_No}. Due on: ${moment(result.data.due_date).format("dddd, MMMM Do YYYY")}`)
     })
+    .catch(
+      result=>{
+        alert(result.response.data.message)
+      }
+    )
   }
 
   render() {
@@ -56,7 +61,7 @@ class NewProject extends Component {
         </div>
         <div className="form-group">
           <label>Due Date:</label>
-          <input type="date" className="form-control" onChange={this.handleDueDate}></input>
+          <input type="date" className="form-control" placeholder={this.state.due_date} onChange={this.handleDueDate}></input>
         </div>
         <div className="form-group">
           <label>Qty. Request</label>

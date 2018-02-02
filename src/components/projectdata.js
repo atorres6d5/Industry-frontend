@@ -1,7 +1,8 @@
 import React from 'react';
 const moment = require('moment')
 
-const ProjectData = ({projects}) => (<div className="container">
+const ProjectData = ({projects}) => (
+<div className="container">
   <div className="table-responsive">
     <table className="table">
       <thead>
@@ -18,6 +19,8 @@ const ProjectData = ({projects}) => (<div className="container">
       <tbody>
         {
           projects.map((project, index) => {
+            const hours = moment.duration(project.labor_hours)._data.hours
+            const minutes = moment.duration(project.labor_hours)._data.minutes
             return (<tr key={index}>
               <th scope="row">{project.id}</th>
               <td>{project.Part_count}</td>
@@ -25,7 +28,7 @@ const ProjectData = ({projects}) => (<div className="container">
               <td>{project.due_date.slice(0, 10)}</td>
               <td>{project.Parts_made}</td>
               <td>{project.scrap_parts}</td>
-              <td>{moment(project.labor_hours).format("h:mm:ss")}</td>
+              <td>{`${hours}:${minutes}`}</td>
             </tr>)
           })
         }
