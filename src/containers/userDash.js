@@ -64,13 +64,10 @@ class UserDash extends Component {
     e.preventDefault()
     const input = this.state.projectID
     const token = localStorage.getItem('Industry Token')
-    console.log(this.state.empID)
     await axios.post(`${devURL}/api/login/project/${input}`, {Employee_id: this.state.empID}).then(result => {
       if (result.data.message) {
-        console.log(result, 'yo we got it wrong! login')
         return alert(`Already logged into Project # ${input}`)
       } else {
-        console.log(result, "here bug");
         result.data.forEach(project => {
           project.due_date = moment(project.due_date).format("MM-DD-YYYY")
         })
@@ -109,7 +106,6 @@ class UserDash extends Component {
   activeProjects = async () => {
     const empID = this.state.empID
     await axios.get(`${devURL}/api/active/projects/${empID}`).then(result => {
-      console.log(result)
       result.data.forEach(project => {
         project.due_date = moment(project.due_date).format("MM-DD-YYYY")
       })
@@ -119,18 +115,15 @@ class UserDash extends Component {
 
   async decodeToken() {
     const token = this.state.token
-    console.log(token)
     await axios.get(`${devURL}/logs/clockIn/token`, {headers: {
         token
       }}).then(result => {
-        console.log(result, 'token');
       this.setState({empID: result.data.id})
     })
   }
 
   async getWorkerData(id) {
     await axios.get(`${devURL}/admin/getUser/${id}`).then(result => {
-      console.log(result, "here")
       this.setState({
         name: result.data.name,
         hireDate: result.data.created_at.slice(0, 10),

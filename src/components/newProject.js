@@ -38,7 +38,6 @@ class NewProject extends Component {
       "due_date": this.state.dueDate,
       "Part_count": this.state.qty
     }).then(result => {
-      console.log(result)
       alert(`Added a new Project for ${result.data.customer}, for ${result.data.Part_count} parts of  Part Number:${result.data.Part_No}. Due on: ${moment(result.data.due_date).format("dddd, MMMM Do YYYY")}`)
       this.props.history.push('/lookUpProject')
     })

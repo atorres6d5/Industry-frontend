@@ -23,7 +23,6 @@ class NewWorker extends Component {
   }
 
   isAdminTrue = (e) => {
-    console.log(e.target.value)
     e.target.value === "True"
       ? this.setState({isAdmin: true})
       : this.setState({isAdmin: false})
@@ -40,7 +39,6 @@ class NewWorker extends Component {
 
       }
     }).then(result => {
-      console.log(result)
       this.setState({name: "", Employee_id: "", isAdmin: false, hashPass: null})
       alert(`Added ${result.data.name}`)
     })

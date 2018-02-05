@@ -20,7 +20,6 @@ class AdminDash extends Component {
 
   whosHere = async () => {
     axios.get(`${devURL}/admin/clocked/in`).then(response => {
-      console.log(response)
       response.data.message
         ? null
         : response.data.data.forEach(worker => {

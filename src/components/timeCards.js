@@ -21,7 +21,6 @@ class Timecards extends Component {
     e.preventDefault()
     axios.get(`${devURL}/admin/clock/records/${this.state.idSearch}`)
     .then(result => {
-      console.log(result)
       result.data.message
         ? alert(result.data.message)
         : result.data.result.forEach(timeLog => {
@@ -35,8 +34,6 @@ class Timecards extends Component {
       result.data.result
         ? this.setState({searchResults: result.data.result})
         : null
-
-      console.log(result)
     })
   }
 
@@ -49,7 +46,6 @@ class Timecards extends Component {
       to: this.state.dateSearchTo
     })
     .then(result => {
-      console.log(result.data, "this is how it comes")
       if(!result.data)alert("that didnt work for some reason")
       result.data.forEach(timeLog => {
         timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
@@ -61,7 +57,6 @@ class Timecards extends Component {
       })
 
       result.data.sort((a, b)=>{return a.Employee_id-b.Employee_id})
-      console.log(result.data, "here it is")
       this.setState({searchResults:result.data})
       })
     }
@@ -70,7 +65,6 @@ class Timecards extends Component {
      from: this.state.dateSearchFrom,
      to: this.state.dateSearchTo
    }).then(result => {
-     console.log(result)
      result.data.result.forEach(timeLog => {
        timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
        timeLog.date = moment(timeLog.Clock_in).format("dddd, MMMM Do YYYY")
@@ -80,7 +74,6 @@ class Timecards extends Component {
          : "Still Clocked In"
 
      })
-     console.log(result.data.result)
      result.data.result.length > 0
        ? this.setState({searchResults: result.data.result})
        : alert("No Data From Date Range")

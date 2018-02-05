@@ -20,12 +20,12 @@ class Login extends Component {
     }
 
     axios.post(`${devURL}/logs/clockIn`, data).then(response => {
-      console.log(response)
+
       localStorage.setItem('Industry Token', response.data.token)
       localStorage.getItem('clockIn')
         ? null
         : localStorage.setItem('clockIn', new Date())
-      console.log(response.data);
+
       this.setState({token: response.data.token})
       this.props.history.push('/dashboard')
 
@@ -39,7 +39,7 @@ class Login extends Component {
       }}).then(result => {
 
       if (result.data) {
-        console.log(result.data)
+
         this.props.history.push('/dashboard')
       }
     })
@@ -59,7 +59,6 @@ class Login extends Component {
         pass
       }
     }).then(responce => {
-      console.log(responce);
       localStorage.setItem('Admin Token', responce.data.token)
       this.props.history.push('/adminDash')
     })
