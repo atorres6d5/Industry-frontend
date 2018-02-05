@@ -9,7 +9,7 @@ const TimeHistory = ({data}) => (
             <th scope="col">Emp #</th>
             <th scope="col">Date</th>
             <th scope="col">Clock In Time</th>
-            <th scope="col">Clcok Out Time</th>
+            <th scope="col">Clock Out Time</th>
             <th scope="col">Hours Worked<br/>(HH:MM:SS)</th>
           </tr>
         </thead>

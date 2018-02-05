@@ -49,6 +49,7 @@ class Timecards extends Component {
       to: this.state.dateSearchTo
     })
     .then(result => {
+      console.log(result.data, "this is how it comes")
       if(!result.data)alert("that didnt work for some reason")
       result.data.forEach(timeLog => {
         timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
@@ -127,8 +128,8 @@ class Timecards extends Component {
             <label htmlFor="search-by-customer">Search by Work Dates</label>
             <div className="row">
               <input type="text" name="Employee_id" className="form-control col-2" placeholder="Employee Id" onChange={this.handleDateChangeId}/>
-              <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeFrom}/>
-              <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeTo}/>
+              <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeFrom} required/>
+              <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeTo} required/>
               <button className="btn btn-secondary" type="submit">Search</button>
             </div>
           </div>
