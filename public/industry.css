@@ -78,12 +78,19 @@
   margin-top: 4rem;
   background-color: rgba(138,137,124, 0.7);
   padding-bottom: 2rem;
+  padding-top: 2rem;
   border-radius: 5px;
 
 }
 
 .scorll{
   max-height: 200px;
+  overflow-y: auto;
+  width: auto;
+}
+
+.scorll-admin{
+  max-height: 350px;
   overflow-y: auto;
   width: auto;
 }
@@ -111,7 +118,7 @@ header{
 
 img{
   max-height: 250px;
-  max-width: 220px;
+  max-width: 520px;
 }
 
 body{

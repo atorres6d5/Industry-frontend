@@ -24,6 +24,12 @@ class lookUpProject extends Component {
     this.setState({searchByCustomer: event.target.value})
   }
 
+  getAllProjects= async ()=>{
+    await axios.get(`${devURL}/api/projects`).then(result=>{
+      this.setState({searchResults:result.data})
+    })
+  }
+
   searchById = async (e) => {
     e.preventDefault()
     const input = parseInt(this.state.searchIdInput)
@@ -60,27 +66,42 @@ class lookUpProject extends Component {
     })
   }
 
+  componentDidMount(){
+    this.getAllProjects()
+  }
+
+
   render() {
     return (<div>
       <div className="container searchProject">
-        <form className="container" onSubmit={this.searchById}>
-          <div className="form-group">
-            <label htmlFor="search-by-projectNO">Find Project By #</label>
-            <div className="row">
-              <input type="ProjectID" className="form-control col-6 " id="projectNO" placeholder="Project #" onChange={this.handleIDchange}/>
-              <button className="btn btn-secondary" type="submit">Search</button>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <form className="container" onSubmit={this.searchById}>
+                <div className="form-group">
+                  <label htmlFor="search-by-projectNO">Find Project By #</label>
+                  <div className="row">
+                    <input type="ProjectID" className="form-control col-6 " id="projectNO" placeholder="Project #" onChange={this.handleIDchange}/>
+                    <button className="btn btn-secondary" type="submit">Search</button>
+                  </div>
+                </div>
+              </form>
+              <form className="container" onSubmit={this.searchByCustomer}>
+                <div className="form-group">
+                  <label htmlFor="search-by-customer">Find Projects By Customer</label>
+                  <div className="row">
+                    <input type="customer" className="form-control col-6 " id="customer" placeholder="Customer Name" onChange={this.handleNameChange}/>
+                    <button className="btn btn-secondary" type="submit">Search</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="col-6 d-flex justify-content-center">
+              <img src="./images/stock.jpg"/>
             </div>
           </div>
-        </form>
-        <form className="container" onSubmit={this.searchByCustomer}>
-          <div className="form-group">
-            <label htmlFor="search-by-customer">Find Projects By Customer</label>
-            <div className="row">
-              <input type="customer" className="form-control col-6 " id="customer" placeholder="Customer Name" onChange={this.handleNameChange}/>
-              <button className="btn btn-secondary" type="submit">Search</button>
-            </div>
-          </div>
-        </form>
+
+        </div>
       </div>
       <div className="container">
         {

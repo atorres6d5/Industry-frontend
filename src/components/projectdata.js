@@ -3,7 +3,7 @@ const moment = require('moment')
 
 const ProjectData = ({projects}) => (
 <div className="container">
-  <div className="table-responsive">
+  <div className="scorll-admin">
     <table className="table">
       <thead>
         <tr>

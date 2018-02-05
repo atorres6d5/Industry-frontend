@@ -19,7 +19,8 @@ class Timecards extends Component {
 
   searchById = (e) => {
     e.preventDefault()
-    axios.get(`${devURL}/admin/clock/records/${this.state.idSearch}`).then(result => {
+    axios.get(`${devURL}/admin/clock/records/${this.state.idSearch}`)
+    .then(result => {
       console.log(result)
       result.data.message
         ? alert(result.data.message)
@@ -40,26 +41,51 @@ class Timecards extends Component {
   }
 
   searchByDates = (e) => {
-    e.preventDefault()
-    axios.post(`${devURL}/admin/clock/timeperiod/${this.state.handleDateChangeId}`, {
+  e.preventDefault()
+  console.log(e.target.Employee_id)
+
+  if(!e.target.Employee_id.value){
+    axios.post(`${devURL}/admin/clock/timeperiod/all${this.state.handleDateChangeId}`, {
       from: this.state.dateSearchFrom,
       to: this.state.dateSearchTo
-    }).then(result => {
-      console.log(result)
-      result.data.result.forEach(timeLog => {
+    })
+    .then(result => {
+      if(!result.data)alert("that didnt work for some reason")
+      result.data.forEach(timeLog => {
         timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
         timeLog.date = moment(timeLog.Clock_in).format("dddd, MMMM Do YYYY")
         timeLog.Clock_in = moment(timeLog.Clock_in).format("h:mm:ss a")
         timeLog.Clock_out = timeLog.Clock_out
           ? moment(timeLog.Clock_out).format("h:mm:ss a")
           : "Still Clocked In"
-
       })
-      console.log(result.data.result)
-      result.data.result.length > 0
-        ? this.setState({searchResults: result.data.result})
-        : alert("No Data From Date Range")
-    })
+
+      result.data.sort((a, b)=>{return a.Employee_id-b.Employee_id})
+      console.log(result.data, "here it is")
+      this.setState({searchResults:result.data})
+      })
+    }
+    else{
+      axios.post(`${devURL}/admin/clock/timeperiod/one/${this.state.handleDateChangeId}`, {
+     from: this.state.dateSearchFrom,
+     to: this.state.dateSearchTo
+   }).then(result => {
+     console.log(result)
+     result.data.result.forEach(timeLog => {
+       timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
+       timeLog.date = moment(timeLog.Clock_in).format("dddd, MMMM Do YYYY")
+       timeLog.Clock_in = moment(timeLog.Clock_in).format("h:mm:ss a")
+       timeLog.Clock_out = timeLog.Clock_out
+         ? moment(timeLog.Clock_out).format("h:mm:ss a")
+         : "Still Clocked In"
+
+     })
+     console.log(result.data.result)
+     result.data.result.length > 0
+       ? this.setState({searchResults: result.data.result})
+       : alert("No Data From Date Range")
+   })
+    }
   }
 
   handleIDchange = (e) => {
@@ -94,7 +120,7 @@ class Timecards extends Component {
           <div className="form-group">
             <label htmlFor="search-by-customer">Search by Work Dates</label>
             <div className="row">
-              <input type="text" className="form-control col-2" placeholder="Employee Id" onChange={this.handleDateChangeId}/>
+              <input type="text" name="Employee_id" className="form-control col-2" placeholder="Employee Id" onChange={this.handleDateChangeId}/>
               <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeFrom}/>
               <input type="date" className="form-control col-3 " placeholder="Dates" onChange={this.handleDateChangeTo}/>
               <button className="btn btn-secondary" type="submit">Search</button>
@@ -106,7 +132,12 @@ class Timecards extends Component {
         {
           this.state.searchResults.length > 0
             ? <TimeHistory data={this.state.searchResults}/>
-            : null
+            : <div className="container">
+              <div className="alert alert-dark" role="alert">
+                  Search Time Cards by dates and/or Employee
+                </div>
+            </div>
+
         }
       </div>
     </div>);

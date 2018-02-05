@@ -37,7 +37,7 @@ class NewWorker extends Component {
         Employee_id: this.state.Employee_id,
         isAdmin: this.state.isAdmin,
         hashPass: this.state.hashPass
-        
+
       }
     }).then(result => {
       console.log(result)

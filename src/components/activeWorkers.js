@@ -16,7 +16,7 @@ const ActiveWorkers = ({workers}) => (<div className="container">
           workers.map((worker, index) => {
             return (<tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{worker.user_id}</td>
+              <td>{worker.Employee_id}</td>
               <td>{worker.Clock_in}</td>
               <td>{worker.hours}</td>
             </tr>)
