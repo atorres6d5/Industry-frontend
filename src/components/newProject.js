@@ -50,7 +50,16 @@ class NewProject extends Component {
   }
 
   render() {
-    return (<div className="container newProject">
+    return (
+      <div>
+        <header className="row justify-content-center no-gutters">
+          <div className="col-5 d-flex align-items-center justify-content-center">
+            <h1>
+              <b>Industry</b>
+            </h1>
+          </div>
+        </header>
+      <div className="container newProject">
       <form onSubmit={this.addProject}>
         <div className="form-group">
           <label>Customer</label>
@@ -69,14 +78,17 @@ class NewProject extends Component {
           <label>Qty. Request</label>
           <input type="number" className="form-control" onChange={this.handleQty} placeholder="0000" required></input>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-2">
-            <button type="submit" className="btn btn-success">Add Project
+        <div className="row justify-content-between">
+          <div className="col-5">
+            <button type="submit" className="btn btn-success btn-block">Add Project
             </button>
           </div>
+          <div className="col-5"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.push("/adminDash")}>Back</button></div>
         </div>
       </form>
-    </div>);
+    </div>
+  </div>
+  );
   }
 
 }

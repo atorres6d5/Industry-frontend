@@ -47,7 +47,16 @@ class NewWorker extends Component {
   }
 
   render() {
-    return (<div className="container newWorker">
+    return (
+      <div>
+        <header className="row justify-content-center no-gutters">
+          <div className="col-5 d-flex align-items-center justify-content-center">
+            <h1>
+              <b>Industry</b>
+            </h1>
+          </div>
+        </header>
+      <div className="container newWorker">
       <form onSubmit={this.addNewUser}>
         <div className="form-group">
           <label>Employee ID</label>
@@ -59,18 +68,19 @@ class NewWorker extends Component {
         </div>
         <div className="form-group">
           <label>Make Admin:</label>
-          <select value={this.state.isAdmin} onChange={this.isAdminTrue}>
+          <select onChange={this.isAdminTrue}>
             <option value="False">No</option>
             <option value="True">Yes</option>
           </select>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-2">
-            <button type="submit" className="btn btn-success">Add User</button>
+        <div className="row justify-content-between">
+          <div className="col-5">
+            <button type="submit" className="btn btn-success btn-block">Add User</button>
           </div>
+          <div className="col-5"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.push("/adminDash")}>Back</button></div>
         </div>
       </form>
-    </div>);
+    </div></div>);
   }
 
 }

@@ -105,6 +105,13 @@ class Timecards extends Component {
 
   render() {
     return (<div>
+      <header className="row justify-content-center no-gutters">
+        <div className="col-5 d-flex align-items-center justify-content-center">
+          <h1>
+            <b>Industry</b>
+          </h1>
+        </div>
+      </header>
       <div className="container searchProject">
         <form className="container" onSubmit={this.searchById}>
           <div className="form-group">
@@ -126,13 +133,17 @@ class Timecards extends Component {
             </div>
           </div>
         </form>
+        <div className="row">
+          <div className="col-3"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.push("/adminDash")}>Back</button></div>
+        </div>
+
       </div>
       <div>
         {
           this.state.searchResults.length > 0
             ? <TimeHistory data={this.state.searchResults}/>
             : <div className="container">
-              <div className="alert alert-dark" role="alert">
+              <div className="alert alert-dark message" role="alert">
                   Search Time Cards by dates and/or Employee
                 </div>
             </div>

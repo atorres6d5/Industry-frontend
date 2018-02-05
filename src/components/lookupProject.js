@@ -80,6 +80,13 @@ class lookUpProject extends Component {
 
   render() {
     return (<div>
+      <header className="row justify-content-center no-gutters">
+        <div className="col-5 d-flex align-items-center justify-content-center">
+          <h1>
+            <b>Industry</b>
+          </h1>
+        </div>
+      </header>
       <div className="container searchProject">
         <div className="container">
           <div className="row">
@@ -102,6 +109,10 @@ class lookUpProject extends Component {
                   </div>
                 </div>
               </form>
+              <div className="row">
+                <div className="col-5"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.push("/adminDash")}>Back</button></div>
+              </div>
+
             </div>
             <div className="col-6 d-flex justify-content-center">
               <img src="./images/stock.jpg"/>

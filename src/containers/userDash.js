@@ -155,7 +155,16 @@ class UserDash extends Component {
   }
 
   render() {
-    return (<div className="container dashboard">
+    return (
+      <div>
+        <header className="row justify-content-center no-gutters">
+          <div className="col-5 d-flex align-items-center justify-content-center">
+            <h1>
+              <b>Industry</b>
+            </h1>
+          </div>
+        </header>
+      <div className="container dashboard">
       <div className="row justify-content-between">
         <div className="col-5">
           <div className="row">
@@ -190,7 +199,10 @@ class UserDash extends Component {
           <ProjectLogout logOut={this.logOutProject} handleProject={this.handleProject} projectID={this.state.projectID} handleClaimParts={this.handleClaimParts} claimParts={this.state.claimParts} handleScrap={this.handleScrap} scrap={this.state.scrap} handleCloseLogOut={this.handleCloseLogOut} projects={this.state.projects}/>
         </ReactModal>
       </div>
-    </div>);
+    </div>
+  </div>
+
+  );
   }
 
 }

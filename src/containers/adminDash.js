@@ -43,7 +43,7 @@ class AdminDash extends Component {
         </h1>
       </header>
       <div className="container adminDash">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center things-todo">
           <div className="col-5">
             <div className="container">
               <div className="row">
@@ -67,7 +67,7 @@ class AdminDash extends Component {
           <div className="row">
             <div className="col">
               <div className="row">
-                <h3>Workers Clocked In</h3>
+                <h3 className="workers-title">Workers Clocked In</h3>
               </div>
               <div className="row">
                 {
@@ -83,7 +83,7 @@ class AdminDash extends Component {
       <div className="container">
         <div className="row justify-content-end">
           <div className="col-4">
-            <button type="button" className="btn btn-block btn-warning" onClick={this.logout}>Log Out</button>
+            <button type="button" className="logout btn btn-block btn-warning" onClick={this.logout}>Log Out</button>
           </div>
         </div>
       </div>

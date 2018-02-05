@@ -34,7 +34,7 @@
 .adminDash{
   background-color: rgba(138,137,124, 0.7);
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 2rem;
 }
 
@@ -43,6 +43,10 @@
   margin: 1rem;
   padding: 1rem;
   border-radius: 5px;
+}
+
+.message{
+  margin:1rem;
 }
 
 .newWorker{
@@ -75,12 +79,18 @@
 }
 
 .searchProject{
-  margin-top: 4rem;
+  margin-top: 2rem;
   background-color: rgba(138,137,124, 0.7);
   padding-bottom: 2rem;
   padding-top: 2rem;
   border-radius: 5px;
 
+}
+
+.workers-title{
+  background-color: #D2D7DF;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .scorll{
@@ -107,6 +117,10 @@ header{
   padding-bottom: 1rem;
   padding-top:  1rem;
   size:3rem;
+}
+
+.things-todo{
+  max-height: 10%;
 }
 
 .table{
