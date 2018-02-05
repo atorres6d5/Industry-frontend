@@ -42,7 +42,6 @@ class Timecards extends Component {
 
   searchByDates = (e) => {
   e.preventDefault()
-  console.log(e.target.Employee_id)
 
   if(!e.target.Employee_id.value){
     axios.post(`${devURL}/admin/clock/timeperiod/all${this.state.handleDateChangeId}`, {

@@ -26,6 +26,13 @@ class lookUpProject extends Component {
 
   getAllProjects= async ()=>{
     await axios.get(`${devURL}/api/projects`).then(result=>{
+      console.log(result.data, "before")
+
+      result.data.sort((a, b)=>{
+        return new Date(a.due_date) - new Date(b.due_date)
+      })
+
+      console.log(result.data, "after");
       this.setState({searchResults:result.data})
     })
   }
