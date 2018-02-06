@@ -105,7 +105,7 @@ class lookUpProject extends Component {
                 </div>
               </form>
               <div className="row">
-                <div className="col-5"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.push("/adminDash")}>Back</button></div>
+                <div className="col-5"><button type="button" className="btn btn-warning btn-block" onClick={()=>this.props.history.goBack()}>Back</button></div>
               </div>
 
             </div>
