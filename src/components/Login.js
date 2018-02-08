@@ -11,35 +11,25 @@ class Login extends Component {
     }
   }
 
-  clickLogin = (e) => {
+  clickLogin = async (e) => {
     /// hit route that checks if Employee is in data base, and then save token in local storage
     e.preventDefault()
     const emp = parseInt(document.querySelector('#empID').value)
     const data = {
-      id: emp
+      Employee_id: emp
     }
-
-    axios.post(`${devURL}/logs/clockIn`, data).then(response => {
-
-      localStorage.setItem('Industry Token', response.data.token)
-      localStorage.getItem('clockIn')
-        ? null
-        : localStorage.setItem('clockIn', new Date())
-
-      this.setState({token: response.data.token})
-      this.props.history.push('/dashboard')
-
+    await axios.post(`${devURL}/logs/clockIn`, data).then(response => {
+      localStorage.setItem('Industry Token', response.data)
+      this.checkToken(response.data)
     })
   }
 
+
   checkToken = (token) => {
-    // let token = localStorage.getItem('Industry Token')
-    axios.get(`${devURL}/logs/clockIn/token`, {headers: {
-        token
-      }}).then(result => {
-
+    axios.get(`${devURL}/logs/clockIn/token`, { headers: { token }
+    })
+    .then(result => {
       if (result.data) {
-
         this.props.history.push('/dashboard')
       }
     })

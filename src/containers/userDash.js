@@ -130,6 +130,12 @@ class UserDash extends Component {
         img: result.data.img
       })
     })
+    await axios.post(`${devURL}/logs/clockTime`, {
+      token:this.state.token,
+      Employee_id:this.state.empID
+    }).then(result=>{
+      console.log(result,"here")
+    })
   }
 
   async componentWillMount() {
