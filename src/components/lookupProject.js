@@ -25,8 +25,10 @@ class lookUpProject extends Component {
   }
 
   getAllProjects= async ()=>{
-    await axios.get(`${devURL}/api/projects`).then(result=>{
-
+    await axios.post(`${devURL}/api/projects`, { token:localStorage.getItem('Industry Token') || localStorage.getItem('Admin Token')
+    })
+    .then(result=>{
+      console.log(result,"all the projects");
       result.data.sort((a, b)=>{
         return new Date(a.due_date) - new Date(b.due_date)
       })

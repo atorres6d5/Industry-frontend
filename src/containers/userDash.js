@@ -118,12 +118,14 @@ class UserDash extends Component {
     await axios.get(`${devURL}/logs/clockIn/token`, {headers: {
         token
       }}).then(result => {
-      this.setState({empID: result.data.id})
+        console.log(result, "token");
+      this.setState({empID: result.data.id, clockInTime:result.data.clockIn})
     })
   }
 
   async getWorkerData(id) {
     await axios.get(`${devURL}/admin/getUser/${id}`).then(result => {
+      console.log(result);
       this.setState({
         name: result.data.name,
         hireDate: result.data.created_at.slice(0, 10),
@@ -167,7 +169,7 @@ class UserDash extends Component {
       <div className="row justify-content-between">
         <div className="col-5">
           <div className="row">
-            <Worker clockTime={moment.utc(localStorage.getItem('clockIn')).format("HH:mm:ss")} picture={this.state.img} name={this.state.name} hireDate={this.state.hireDate}/>
+            <Worker clockTime={moment(this.state.clockInTime).format("HH:mm:ss")} picture={this.state.img} name={this.state.name} hireDate={this.state.hireDate}/>
           </div>
         </div>
         <div className="col-5 d-flex align-items-center">
