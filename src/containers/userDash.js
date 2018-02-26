@@ -64,7 +64,11 @@ class UserDash extends Component {
     e.preventDefault()
     const input = this.state.projectID
     const token = localStorage.getItem('Industry Token')
-    await axios.post(`${devURL}/api/login/project/${input}`, {Employee_id: this.state.empID}).then(result => {
+    await axios.post(`${devURL}/api/login/project/${input}`, {
+      Employee_id: this.state.empID,
+    headers: {token}
+    })
+    .then(result => {
       if (result.data.message) {
         return alert(`Already logged into Project # ${input}`)
       } else {
@@ -82,18 +86,20 @@ class UserDash extends Component {
     const Parts_made = this.state.claimParts
     const scrap = this.state.scrap
     const project_id = e.target.project_id.value
-
+    const token = localStorage.getItem("Industry Token")
     Promise.all([
       axios.put(`${devURL}/api/count/update/${project_id}`, {
         count: Parts_made,
         scrap: scrap,
-        Employee_id: this.state.empID
+        Employee_id: this.state.empID,
+        headers: {token}
       }),
       axios.put(`${devURL}/api/logout/project/${project_id}`, {
         count: Parts_made,
         scrap: scrap,
         Employee_id: this.state.empID,
-        project_id: project_id
+        project_id: project_id,
+        headers: {token}
       })
     ]).then(result => {
       const res = result[1].data
@@ -105,7 +111,11 @@ class UserDash extends Component {
 
   activeProjects = async () => {
     const empID = this.state.empID
-    await axios.get(`${devURL}/api/active/projects/${empID}`).then(result => {
+    const token = localStorage.getItem("Industry Token")
+    await axios.get(`${devURL}/api/active/projects/${empID}`,
+      {headers:{token}
+    })
+      .then(result => {
       result.data.forEach(project => {
         project.due_date = moment(project.due_date).format("MM-DD-YYYY")
       })
@@ -132,12 +142,6 @@ class UserDash extends Component {
         img: result.data.img
       })
     })
-    await axios.post(`${devURL}/logs/clockTime`, {
-      token:this.state.token,
-      Employee_id:this.state.empID
-    }).then(result=>{
-      console.log(result,"here")
-    })
   }
 
   async componentWillMount() {
@@ -147,7 +151,13 @@ class UserDash extends Component {
   }
 
   clockOut = async () => {
-    await axios.post(`${devURL}/logs/clockOut/${this.state.empID}`).then(localStorage.removeItem('Industry Token'), localStorage.removeItem('clockIn')).then(this.props.history.push('/login'))
+    await axios.put(`${devURL}/logs/clockOut`, {Employee_id:this.state.empID, headers:{token:localStorage.getItem('Industry Token')}
+    })
+    .then(result=>{
+      console.log(result, "clock Out")
+      localStorage.removeItem('Industry Token')
+      this.props.history.push('/login')
+    })
   }
 
   logOut = () => {

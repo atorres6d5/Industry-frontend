@@ -7,6 +7,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      empID:null,
       token: localStorage.getItem('Industry Token')
     }
   }
@@ -14,16 +15,20 @@ class Login extends Component {
   clickLogin = async (e) => {
     /// hit route that checks if Employee is in data base, and then save token in local storage
     e.preventDefault()
-    const emp = parseInt(document.querySelector('#empID').value)
+    const emp = this.state.empID
     const data = {
       Employee_id: emp
     }
+    console.log(data)
     await axios.post(`${devURL}/logs/clockIn`, data).then(response => {
       localStorage.setItem('Industry Token', response.data)
       this.checkToken(response.data)
     })
   }
 
+  handleIDLogin = (e) =>{
+    this.setState({empID:e.target.value})
+  }
 
   checkToken = (token) => {
     axios.get(`${devURL}/logs/clockIn/token`, { headers: { token }
@@ -65,19 +70,18 @@ class Login extends Component {
         </div>
       </header>
       <br/>
-      <div className="container">
+      <form className="container" onSubmit={this.clickLogin}>
         <div className="row justify-content-center">
           <div className="col-6">
             <div className="input-group mb-3">
-              <input id="empID" type="text" className="form-control" placeholder="Employee ID:" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+              <input id="empID" type="text" className="form-control" placeholder="Employee ID:" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={this.handleIDLogin}/>
               <div className="input-group-append">
-                <button className="btn btn-secondary" type="button" onClick={this.clickLogin}>Login</button>
+                <button className="btn btn-secondary" type="submit" >Login</button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
+      </form>
       <form className="container" onSubmit={this.adminLogin}>
         <div className="row justify-content-center">
           <div className="col-6">

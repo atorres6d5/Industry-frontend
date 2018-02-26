@@ -25,7 +25,9 @@ class lookUpProject extends Component {
   }
 
   getAllProjects= async ()=>{
-    await axios.post(`${devURL}/api/projects`, { token:localStorage.getItem('Industry Token') || localStorage.getItem('Admin Token')
+    const token = localStorage.getItem("Admin Token")||localStorage.getItem("Industry Token")
+    await axios.post(`${devURL}/api/projects`, {
+      headers:{token}
     })
     .then(result=>{
       console.log(result,"all the projects");
@@ -39,7 +41,7 @@ class lookUpProject extends Component {
   searchById = async (e) => {
     e.preventDefault()
     const input = parseInt(this.state.searchIdInput)
-    const token = localStorage.getItem('Industry Token')
+    const token = localStorage.getItem('Industry Token')||localStorage.getitem("Admin Token")
 
     await axios.get(`${devURL}/api/projects/${input}`, {headers: {
         token
@@ -57,7 +59,7 @@ class lookUpProject extends Component {
   searchByCustomer = async (e) => {
     e.preventDefault()
     const input = this.state.searchByCustomer
-    const token = localStorage.getItem('Industry Token')
+    const token = localStorage.getItem('Industry Token')||localStorage.getitem("Admin Token")
 
     await axios.get(`${devURL}/api/project/${input}`, {headers: {
         token

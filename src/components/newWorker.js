@@ -31,6 +31,7 @@ class NewWorker extends Component {
   addNewUser = (e) => {
     e.preventDefault()
     axios.post(`${devURL}/admin/newUser`, {
+      headers:{token:localStorage.getItem('Admin Token')},
       user: {
         name: this.state.name,
         Employee_id: this.state.Employee_id,

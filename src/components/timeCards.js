@@ -19,7 +19,10 @@ class Timecards extends Component {
 
   searchById = (e) => {
     e.preventDefault()
-    axios.get(`${devURL}/admin/clock/records/${this.state.idSearch}`)
+    const token = localStorage.getItem("Admin Token")
+    axios.get(`${devURL}/admin/clock/records/${this.state.idSearch}`, {
+      headers:{token:localStorage.getItem('Admin Token')}
+    })
     .then(result => {
       result.data.message
         ? alert(result.data.message)
@@ -41,9 +44,11 @@ class Timecards extends Component {
   e.preventDefault()
 
   if(!e.target.Employee_id.value){
+    const token = localStorage.getItem("Admin Token")
     axios.post(`${devURL}/admin/clock/timeperiod/all${this.state.handleDateChangeId}`, {
       from: this.state.dateSearchFrom,
-      to: this.state.dateSearchTo
+      to: this.state.dateSearchTo,
+      headers:{token:localStorage.getItem('Admin Token')}
     })
     .then(result => {
       if(!result.data)alert("that didnt work for some reason")
@@ -61,9 +66,11 @@ class Timecards extends Component {
       })
     }
     else{
+      const token = localStorage.getItem("Admin Token")
       axios.post(`${devURL}/admin/clock/timeperiod/one/${this.state.handleDateChangeId}`, {
      from: this.state.dateSearchFrom,
-     to: this.state.dateSearchTo
+     to: this.state.dateSearchTo,
+     headers:{token:localStorage.getItem('Admin Token')}
    }).then(result => {
      result.data.result.forEach(timeLog => {
        timeLog.timeLogged = moment.duration(moment(timeLog.Clock_out).diff(timeLog.Clock_in))._data
