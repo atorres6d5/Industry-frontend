@@ -34,6 +34,7 @@ class Login extends Component {
     axios.post(`${devURL}/logs/clockIn/token`, { headers: { token }
     })
     .then(result => {
+      console.log(result, 'checkToken');
       if (result.data) {
         this.props.history.push('/dashboard')
       }
