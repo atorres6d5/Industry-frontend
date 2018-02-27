@@ -125,7 +125,7 @@ class UserDash extends Component {
 
   async decodeToken() {
     const token = this.state.token
-    await axios.get(`${devURL}/logs/clockIn/token`, {headers: {
+    await axios.post(`${devURL}/logs/clockIn/token`, {headers: {
         token
       }}).then(result => {
         console.log(result, "token");
