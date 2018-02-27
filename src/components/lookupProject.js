@@ -30,7 +30,6 @@ class lookUpProject extends Component {
       headers:{token}
     })
     .then(result=>{
-      console.log(result,"all the projects");
       result.data.sort((a, b)=>{
         return new Date(a.due_date) - new Date(b.due_date)
       })
