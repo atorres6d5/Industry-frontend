@@ -19,8 +19,8 @@ class Login extends Component {
     const data = {
       Employee_id: emp
     }
-    console.log(data)
     await axios.post(`${devURL}/logs/clockIn`, data).then(response => {
+      console.log(response, "login")
       localStorage.setItem('Industry Token', response.data)
       this.checkToken(response.data)
     })
