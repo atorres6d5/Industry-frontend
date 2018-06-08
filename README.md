@@ -15,6 +15,8 @@ Both Workers and Admins can see when projects are due and and if any are past du
 
 live site at https://industry-cap.herokuapp.com/
 
+this is on a free heroku hobbyist account so a may take a minute to load the first time.
+
 # to login
 
 employee id logins are 1001, 1002, 1003, 1004, 1005
