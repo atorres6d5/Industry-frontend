@@ -24,7 +24,7 @@ const ProjectData = ({projects}) => (
             return (<tr key={index}>
               <th scope="row">{project.id}</th>
               <td>{project.Part_count}</td>
-              <td>{project.customer}</td>
+              <td>{project.name}</td>
               <td className={new Date(project.due_date) < new Date() ? "text-danger" : "text-success"}>{project.due_date.slice(0, 10)}</td>
               <td>{project.Parts_made}</td>
               <td>{project.scrap_parts}</td>

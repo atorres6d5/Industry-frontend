@@ -77,6 +77,7 @@ class lookUpProject extends Component {
 
 
   render() {
+    console.log(this.state.searchResults)
     return (<div>
       <header className="row justify-content-center no-gutters">
         <div className="col-5 d-flex align-items-center justify-content-center">
