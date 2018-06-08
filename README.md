@@ -28,7 +28,7 @@ Both Workers and Admins can see when projects are due and and if any are past du
 
 
 
----Admin's---
+### ---Admin's---
 
 * [X]-an admin will be able to make a new project/orders
 * [ ]-add new machine's/ work stations
@@ -39,7 +39,7 @@ Both Workers and Admins can see when projects are due and and if any are past du
 * [ ]-delete Users
 
 
---stretch--
+### --stretch--
 
 * [ ]-add eff. of workers time expected time took
 * [ ]-which machine has the least time working
