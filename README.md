@@ -13,6 +13,13 @@ Admins would be able to see who is active in their shop by viewing who is clocke
 Both Workers and Admins can see when projects are due and and if any are past due to help with on time delivery. All users and filter projects by customer or project #
 
 
+live site at https://industry-cap.herokuapp.com/
+
+# to login
+
+employee id logins are 1001, 1002, 1003, 1004, 1005
+admin id # is 1000 and password: admin
+
 
 ## Future Features
 
