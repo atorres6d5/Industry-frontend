@@ -14,8 +14,10 @@ Both Workers and Admins can see when projects are due and and if any are past du
 
 
 
+## Future Features
 
----Users---
+
+### ---Users---
 
 * [X]-users of this app will use this to keep a log of hours worked for a company
 * [X]-users will log into projects/orders being worked on at their station. workers will be able to log hours worked on project, parts made, parts scrapped, and print tags for parts. When they finish the parts they will move it along in the que
